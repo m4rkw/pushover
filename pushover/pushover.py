@@ -8,12 +8,13 @@ class Pushover:
         self.user_key = user_key
         self.api_token = api_token
 
-    def send(self, message: str, title: str | None = None, priority: int = 0, sound: str | None = None) -> dict:
+    def send(self, message: str, title: str | None = None, priority: int = 0, sound: str | None = None, url: str | None = None) -> dict:
         payload = {
             "token": self.api_token,
             "user": self.user_key,
             "message": message,
-            "priority": priority
+            "priority": priority,
+            "url": url
         }
         if title:
             payload["title"] = title
