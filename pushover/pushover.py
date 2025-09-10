@@ -8,6 +8,9 @@ class Pushover:
         self.user_key = user_key
         self.api_token = api_token
 
+    def send_message(self, message: str, title: str | None = None, priority: int = 0, sound: str | None = None, url: str | None = None) -> dict:
+        return self.send(message, title, priority, sound, url)
+
     def send(self, message: str, title: str | None = None, priority: int = 0, sound: str | None = None, url: str | None = None) -> dict:
         payload = {
             "token": self.api_token,
